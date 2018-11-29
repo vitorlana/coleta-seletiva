@@ -7,6 +7,7 @@ protected:
     std::string nome;
     float quantidade_em_quilos;
     std::string breve_descricao;
+    //dono
 public:
     Material (std::string nome, float quantidade_em_quilos, std::string breve_descricao);
     virtual void modo_de_armazenamento();

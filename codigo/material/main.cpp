@@ -3,6 +3,7 @@
 #include "vidro.cpp"
 #include "papel.cpp"
 #include "metal.cpp"
+#include "menu.cpp"
 #include "oleo.cpp"
 #include <iostream>
 int main (){
@@ -18,4 +19,8 @@ int main (){
     o->modo_de_armazenamento();
     std::cout<<p->get_nome();
 
+    Menu();
+
+
 }
+
