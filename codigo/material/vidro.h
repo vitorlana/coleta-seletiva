@@ -6,7 +6,7 @@
 class Vidro : public Material {
 public:
     Vidro (float quantidade_em_quilos, std::string breve_descricao);
-    virtual void modo_de_armazenamento() override;
+    void modo_de_armazenamento() override;
 
 };
 

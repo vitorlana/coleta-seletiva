@@ -14,9 +14,6 @@ public:
     std::string get_nome();
     std::string get_breve_descricao ();
     float get_quantidade_em_quilos();
-    void set_breve_descricao (std::string breve_descricao);
-    void set_quantidade_em_quilos(float quantidade_em_quilos);
-
 
 };
 

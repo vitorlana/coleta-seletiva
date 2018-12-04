@@ -3,9 +3,10 @@
 #include "vidro.cpp"
 #include "papel.cpp"
 #include "metal.cpp"
-#include "menu.cpp"
 #include "oleo.cpp"
+#include "menu.cpp"
 #include <iostream>
+
 int main (){
     Material *p = new Plastico (10.1, "sss");
     Material *v = new Vidro (2, "a");
@@ -18,9 +19,6 @@ int main (){
     s->modo_de_armazenamento();
     o->modo_de_armazenamento();
     std::cout<<p->get_nome();
-
     Menu();
 
-
 }
-

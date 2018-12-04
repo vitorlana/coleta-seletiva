@@ -5,7 +5,7 @@ Material::Material(std::string nome, float quantidade_em_quilos, std::string bre
     this->breve_descricao=breve_descricao;
 }
 void Material::modo_de_armazenamento(){
-    std::cout<< "modo de armazenamento"<< std::endl;
+    //std::cout<< "modo de armazenamento"<< std::endl;
 
 }
 std::string Material::get_nome(){
@@ -16,10 +16,4 @@ std::string Material::get_breve_descricao(){
 }
 float Material::get_quantidade_em_quilos(){
     return quantidade_em_quilos;
-}
-void Material::set_breve_descricao (std::string breve_descricao){
-    this->breve_descricao=breve_descricao;
-}
-void Material::set_quantidade_em_quilos (float quantidade_em_quilos){
-    this->quantidade_em_quilos=quantidade_em_quilos;
 }
