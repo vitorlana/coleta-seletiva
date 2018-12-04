@@ -2,7 +2,7 @@
 #define CADASTROMATERIAL_H_INCLUDED
 #include "material.h"
 #include "plastico.h"
-#include "ole.h"
+#include "oleo.h"
 #include "metal.h"
 #include "vidro.h"
 #include "papel.h"
@@ -10,7 +10,10 @@
 class CadastroMaterial {
 protected:
     std::vector <Material*> Materiais_cadastrados;
+public:
+    CadastroMaterial(){};
+    void cadastrar_material ();
+    void imprimir_materiais_cadastrados();
 };
-void cadastrar_material ();
-void imprimir_materiais_cadastrados();
+
 #endif

@@ -8,6 +8,6 @@
 #include <iostream>
 
 int main (){
-    Menu();
+    MenuPrincipal();
     return 0;
 }
