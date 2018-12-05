@@ -13,6 +13,7 @@ public:
 	CadastroUsuario() {};
 	Pessoa* login();
 	void cadastro();
+	Pessoa *pessoa_logada;
 	bool find(std::string);
 	void imprimepessoas();
 private:

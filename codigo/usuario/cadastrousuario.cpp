@@ -61,6 +61,7 @@ Pessoa * CadastroUsuario::login()
 	std::cout << "-- LOGIN REALIZADO COM SUCESSO! --" << std::endl;
 	std::cout << std::endl;
 
+	pessoa_logada = _mapcadastro.find(nomelogin)->second;
 	return _mapcadastro.find(nomelogin)->second;
 }
 
@@ -101,10 +102,10 @@ void CadastroUsuario::cadastro()
 	while (endereco.length() == 0)
 		std::getline(std::cin, endereco);
 	std::cout << std::endl;
-	
+
 	int interesse;
 	do {
-		
+
 		std::cout << "Selecione o seu interesse material a ser depositado" << std::endl;
 		std::cout << "1 para Papel" << std::endl;
 		std::cout << "2 para Vidro" << std::endl;
@@ -136,7 +137,7 @@ void CadastroUsuario::cadastro()
 			std::cout << std::endl;
 		}
 	} while ((tipo > 3) | (tipo < 1));
-	
+
 	std::cout << std::endl;
 
 	int telefone;
@@ -171,9 +172,9 @@ bool CadastroUsuario::find(std::string nomelogin)
 }
 
 void CadastroUsuario::imprimepessoas()
-{ 
+{
 	int count=0;
-	
+
 	std::cout << "Listagem de todos os usuarios cadastrados: " << std::endl;
 
 	for (std::map<std::string, Pessoa*>::iterator it = _mapcadastro.begin(); it != _mapcadastro.end(); it++)
