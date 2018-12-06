@@ -1,4 +1,6 @@
 #include <string>
+#ifndef LOCAL_H_INCLUDED
+#define LOCAL_H_INCLUDED
 class Local
 {
 public:
@@ -8,4 +10,4 @@ public:
 private:
 	std::string _local;
 };
-
+#endif // LOCAL_H_INCLUDED

@@ -6,10 +6,10 @@
 #include "metal.h"
 #include "vidro.h"
 #include "papel.h"
-#include <vector>
+#include <map>
 class CadastroMaterial {
 protected:
-    std::vector <Material*> Materiais_cadastrados;
+    std::map <std::string, Material*> Materiais_cadastrados;
 public:
     CadastroMaterial(){};
     void cadastrar_material ();
