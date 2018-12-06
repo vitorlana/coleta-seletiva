@@ -19,6 +19,7 @@ Pessoa * CadastroUsuario::login()
 	std::string senhalogin;
 	std::string nomelogin;
 	int flag = 0;
+	int opc;
 
 	std::cout << std::endl;
 	std::cout << "-- NOVO LOGIN DE USUARIO --" << std::endl;
@@ -42,6 +43,17 @@ Pessoa * CadastroUsuario::login()
 			if (flag == 0) {
 				std::cout << "-->> LOGIN NAO ENCONTRADO <<--" << std::endl;
 				std::cout << std::endl;
+				std::cout << "DESEJA CADASTAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
+				std::cin >> opc;
+				switch (opc)
+				{
+				case 1:
+					CadastroUsuario::cadastro();
+					break;
+				case 2:
+					exit(1);
+				}
+
 			}
 		} while (flag == 0);
 
