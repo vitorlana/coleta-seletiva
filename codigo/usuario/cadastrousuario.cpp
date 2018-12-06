@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "windows.h"
 
-void clear_screen(char fill = ' ')
+void clear_screen1(char fill = ' ')
 {
 	COORD tl = { 0,0 };
 	CONSOLE_SCREEN_BUFFER_INFO s;
@@ -19,6 +19,7 @@ Pessoa * CadastroUsuario::login()
 	std::string senhalogin;
 	std::string nomelogin;
 	int flag = 0;
+	int opc;
 
 	std::cout << std::endl;
 	std::cout << "-- NOVO LOGIN DE USUARIO --" << std::endl;
@@ -42,6 +43,17 @@ Pessoa * CadastroUsuario::login()
 			if (flag == 0) {
 				std::cout << "-->> LOGIN NAO ENCONTRADO <<--" << std::endl;
 				std::cout << std::endl;
+				std::cout << "DESEJA CADASTAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
+				std::cin >> opc;
+				switch (opc)
+				{
+				case 1:
+					CadastroUsuario::cadastro();
+					break;
+				case 2:
+					exit(1);
+				}
+
 			}
 		} while (flag == 0);
 
@@ -55,7 +67,7 @@ Pessoa * CadastroUsuario::login()
 		}
 	} while ((_mapcadastro.find(nomelogin)->second->get_senha()) != senhalogin);
 
-	clear_screen();
+	clear_screen1();
 
 	std::cout << std::endl;
 	std::cout << "-- LOGIN REALIZADO COM SUCESSO! --" << std::endl;
@@ -155,7 +167,7 @@ void CadastroUsuario::cadastro()
 	Pessoa * newusuario = new Pessoa(nomeusuario, senhausuario, endereco, interesse, tipo, telefone);
 
 	_mapcadastro[newusuario->get_nome()] = newusuario;
-	clear_screen();
+	clear_screen1();
 	std::cout << "-> CADASTRO REALIZADO COM SUCESSO, " << newusuario->get_nome() << "!" << std::endl;
 	std::cout << std::endl;
 }

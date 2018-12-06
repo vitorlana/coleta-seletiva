@@ -58,6 +58,7 @@ void MenuMaterial(){
         }
     }
 }
+<<<<<<< HEAD
 
 void MenuLocal (){
     CadastroLocal cadastrolocal = CadastroLocal();
@@ -81,3 +82,5 @@ void MenuLocal (){
             MenuPrincipal();
     }
 }
+=======
+>>>>>>> vitor-agendamento

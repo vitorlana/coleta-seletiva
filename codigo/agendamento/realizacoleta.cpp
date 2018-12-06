@@ -1,14 +1,14 @@
 #include <iostream>
 #include "realizacoleta.h"
 
-Realiza_Coleta::Realiza_Coleta(Pessoa *usuario_receptor)
+Realiza_Coleta::Realiza_Coleta(Pessoa *receptor)
 {
-    this->usuario_receptor = usuario_receptor;
+    this->receptor = receptor;
 }
 
 void Realiza_Coleta::Imprime_dados()
 {
-    std::cout << usuario_receptor->get_nome() << "\n";
-    std::cout << usuario_receptor->get_endereco() << "\n";
+    std::cout << receptor->get_nome() << "\n";
+    std::cout << receptor->get_endereco() << "\n";
 
 }
