@@ -13,26 +13,34 @@
 #include "../agendamento/agendacoleta.cpp"
 #include <iostream>
 #include <iomanip>
-#include "windows.h"
 
 Pessoa *MenuUsuario();
-void MenuPrincipal();
+void MenuPrincipal(Pessoa *usuario);
 void MenuCadastroMaterial();
 void MenuCadastroLocal();
 void MenuCadastroColeta(Pessoa *usuario);
 
+int opcao =1 ;
+Pessoa *usuario_logado;
+CadastroUsuario *usuario_cadastro = new CadastroUsuario();
+
 int main (){
-    Pessoa *usuario = MenuUsuario();
-    MenuPrincipal();
-    MenuCadastroColeta(usuario);
-    Realiza_Coleta coleta = Realiza_Coleta(usuario);
-    coleta.Imprime_dados();
+
+    while (opcao > 0 )
+    {
+        usuario_logado = MenuUsuario();
+        MenuPrincipal(usuario_logado);
+    }
+
+    //MenuCadastroColeta(usuario);
+    //Realiza_Coleta coleta = Realiza_Coleta(usuario);
+    //coleta.Imprime_dados();
 
     return 0;
 }
 
 Pessoa *MenuUsuario(){
-    CadastroUsuario *usuario = new CadastroUsuario();
+
     int opcao;
     do
     {
@@ -42,13 +50,15 @@ Pessoa *MenuUsuario(){
         switch (opcao)
         {
         case 1:
-            usuario->cadastro();
+            usuario_cadastro->cadastro();
             break;
         case 2:
             std::cout << "USUARIOS DIPONIVEIS PARA LOGIN" << "\n";
-            usuario->imprimepessoas();
-            usuario->login();
-            return usuario->pessoa_logada;
+            usuario_cadastro->imprimepessoas();
+            usuario_cadastro->login();
+            return usuario_cadastro->pessoa_logada;
+        case 0:
+            exit(1);
         }
     }while (opcao > 0);
 }
@@ -58,13 +68,18 @@ void MenuCadastroColeta(Pessoa *usuario)
     if (usuario->get_tipovalor()==1)
     {
         std::cout << "Receptor" << "\n";
+        Agenda_Coleta *agendamento = new Agenda_Coleta(usuario);
+        agendamento->Imprime_dados();
     }else if (usuario->get_tipovalor()==2)
     {
         std::cout << "Doador" << "\n";
+    }else
+    {
+        std::cout << "locutafhasdfhasuhfauhsuhd" << "\n";
     }
 }
 
-void MenuPrincipal(){
+void MenuPrincipal(Pessoa *usuario){
     int opcao;
     do
     {
@@ -77,11 +92,10 @@ void MenuPrincipal(){
         case 2:
             break;
         case 3:
+            MenuCadastroColeta(usuario);
             break;
         case 4:
             break;
-        case 0:
-            return;
         }
     }while (opcao > 0);
 }
