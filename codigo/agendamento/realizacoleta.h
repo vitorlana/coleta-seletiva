@@ -7,7 +7,7 @@
 
 class Realiza_Coleta{
 protected:
-        Pessoa *usuario_receptor;
+        Pessoa *receptor;
         //Material material_recebido;
         //Local local_realizacao;
 public:
