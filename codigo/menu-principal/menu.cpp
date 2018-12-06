@@ -19,10 +19,12 @@ void MenuPrincipal(Pessoa *usuario);
 void MenuCadastroMaterial();
 void MenuCadastroLocal();
 void MenuCadastroColeta(Pessoa *usuario);
+void MenuMaterial();
 
 int opcao =1 ;
 Pessoa *usuario_logado;
 CadastroUsuario *usuario_cadastro = new CadastroUsuario();
+CadastroMaterial *material_cadastro= new CadastroMaterial();
 
 int main (){
 
@@ -88,7 +90,7 @@ void MenuPrincipal(Pessoa *usuario){
         switch (opcao)
         {
         case 1:
-            break;
+            MenuMaterial();
         case 2:
             break;
         case 3:
@@ -99,3 +101,31 @@ void MenuPrincipal(Pessoa *usuario){
         }
     }while (opcao > 0);
 }
+void MenuMaterial(){
+    int opcao;
+    std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
+    std::cout<<"(1)Cadastrar Material"<<std::endl;
+    std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
+    std::cout<<"(3)Sair"<<std::endl<<std::endl;
+    std::cout<<"Selecione a opcao desejada: ";
+    std::cin>>opcao;
+    while (opcao<1 || opcao>3){
+        std::cout<<"Opcao invalida. Escolha entre 1 e 3: "<<std::endl;
+        std::cin>>opcao;
+    }
+    clear_screen();
+    if (opcao==1){
+        material_cadastro->cadastrar_material();
+
+    }
+    else{
+        if (opcao==2){
+            material_cadastro->imprimir_materiais_cadastrados();
+            MenuPrincipal(usuario_cadastro->pessoa_logada);
+        }
+        else{
+           MenuPrincipal(usuario_cadastro->pessoa_logada);
+        }
+    }
+}
+
