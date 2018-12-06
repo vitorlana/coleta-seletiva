@@ -17,7 +17,7 @@ void MenuPrincipal (){
         std::cout<<"Opcao invalida. Escolha entre 1 e 5: "<<std::endl;
         std::cin>>opcaoprincipal;
     }
-    clear_screen();
+
     switch (opcaoprincipal){
     case 1:
     case 2:
@@ -43,7 +43,7 @@ void MenuMaterial(){
         std::cout<<"Opcao invalida. Escolha entre 1 e 3: "<<std::endl;
         std::cin>>opcao;
     }
-    clear_screen();
+
     if (opcao==1){
         cadastromaterial.cadastrar_material();
         MenuPrincipal();

@@ -30,39 +30,43 @@ void CadastroMaterial::cadastrar_material(){
         std::cin>>material;
 
     }
-    clear_screen();
+
     std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas: ";
     std::cin>>quantidade;
     std::cout<<std::endl;
     std::cout<<"Digite uma breve descricao (25 caracteres) do seu material: ";
     std::cin>>descricao;
-    clear_screen();
+
     if(material==1){
         Material *novopapel= new Papel (quantidade, descricao);
         Materiais_cadastrados[novopapel->get_breve_descricao()] = novopapel;
+        std::cout<<Materiais_cadastrados.size()<<std::endl;
 
     }
     else {
         if (material==2){
             Material *novoplastico= new Plastico (quantidade, descricao);
             Materiais_cadastrados[novoplastico->get_breve_descricao()] = novoplastico;
+            std::cout<<Materiais_cadastrados.size()<<std::endl;
         }
         else {
             if (material==3){
                 Material *novometal= new Metal (quantidade, descricao);
                 Materiais_cadastrados[novometal->get_breve_descricao()] = novometal;
-
+                std::cout<<Materiais_cadastrados.size()<<std::endl;
             }
             else {
                 if (material==4){
                    Material *novovidro= new Vidro (quantidade, descricao);
                     Materiais_cadastrados[novovidro->get_breve_descricao()] = novovidro;
+                    std::cout<<Materiais_cadastrados.size()<<std::endl;
 
                 }
                 else{
                     if (material=5){
                     Material *novooleo= new Oleo (quantidade, descricao);
                     Materiais_cadastrados[novooleo->get_breve_descricao()] = novooleo;
+                    std::cout<<Materiais_cadastrados.size()<<std::endl;
                     }
                 }
             }
