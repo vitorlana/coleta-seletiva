@@ -16,10 +16,10 @@
 
 Pessoa *MenuUsuario();
 void MenuPrincipal(Pessoa *usuario);
-void MenuCadastroMaterial();
+void MenuMaterial(Pessoa *usuariologado);
 void MenuCadastroLocal();
 void MenuCadastroColeta(Pessoa *usuario);
-void MenuMaterial();
+
 
 int opcao =1 ;
 Pessoa *usuario_logado;
@@ -90,7 +90,7 @@ void MenuPrincipal(Pessoa *usuario){
         switch (opcao)
         {
         case 1:
-            MenuMaterial();
+            MenuMaterial(usuario);
         case 2:
             break;
         case 3:
@@ -101,7 +101,7 @@ void MenuPrincipal(Pessoa *usuario){
         }
     }while (opcao > 0);
 }
-void MenuMaterial(){
+void MenuMaterial(Pessoa* usuario_logado){
     int opcao;
     std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
     std::cout<<"(1)Cadastrar Material"<<std::endl;
@@ -115,7 +115,7 @@ void MenuMaterial(){
     }
     clear_screen();
     if (opcao==1){
-        material_cadastro->cadastrar_material();
+        material_cadastro->cadastrar_material(usuario_logado);
 
     }
     else{

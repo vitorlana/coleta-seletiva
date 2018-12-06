@@ -5,7 +5,7 @@
 
 class Vidro : public Material {
 public:
-    Vidro (float quantidade_em_quilos, std::string breve_descricao);
+    Vidro (float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono);
     void modo_de_armazenamento() override;
 
 };

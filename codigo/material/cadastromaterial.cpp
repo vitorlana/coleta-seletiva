@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "cadastromaterial.h"
+#include "..\usuario\pessoa.h"
 #include "windows.h"
 int mapa=0;
 void clear_screen(char fill = ' '){
@@ -13,7 +14,7 @@ void clear_screen(char fill = ' '){
 	FillConsoleOutputAttribute(console, s.wAttributes, cells, tl, &written);
 	SetConsoleCursorPosition(console, tl);
 }
-void CadastroMaterial::cadastrar_material(){
+void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
     int material;
     float quantidade;
     std::string descricao;
@@ -38,35 +39,34 @@ void CadastroMaterial::cadastrar_material(){
     std::cin>>descricao;
 
     if(material==1){
-        Material *novopapel= new Papel (quantidade, descricao);
-        Materiais_cadastrados[novopapel->get_breve_descricao()] = novopapel;
-        std::cout<<Materiais_cadastrados.size()<<std::endl;
-
+        Material *novopapel= new Papel (quantidade, descricao, usuario_logado);
+        Materiais_cadastrados.push_back(novopapel);
+        novopapel->modo_de_armazenamento();
     }
     else {
         if (material==2){
-            Material *novoplastico= new Plastico (quantidade, descricao);
-            Materiais_cadastrados[novoplastico->get_breve_descricao()] = novoplastico;
-            std::cout<<Materiais_cadastrados.size()<<std::endl;
+            Material *novoplastico= new Plastico (quantidade, descricao, usuario_logado);
+            Materiais_cadastrados.push_back(novoplastico);
+            novoplastico->modo_de_armazenamento();
         }
         else {
             if (material==3){
-                Material *novometal= new Metal (quantidade, descricao);
-                Materiais_cadastrados[novometal->get_breve_descricao()] = novometal;
-                std::cout<<Materiais_cadastrados.size()<<std::endl;
+                Material *novometal= new Metal (quantidade, descricao, usuario_logado);
+                Materiais_cadastrados.push_back(novometal);
+                novometal->modo_de_armazenamento();
             }
             else {
                 if (material==4){
-                   Material *novovidro= new Vidro (quantidade, descricao);
-                    Materiais_cadastrados[novovidro->get_breve_descricao()] = novovidro;
-                    std::cout<<Materiais_cadastrados.size()<<std::endl;
+                   Material *novovidro= new Vidro (quantidade, descricao, usuario_logado);
+                   Materiais_cadastrados.push_back(novovidro);
+                   novovidro->modo_de_armazenamento();
 
                 }
                 else{
                     if (material=5){
-                    Material *novooleo= new Oleo (quantidade, descricao);
-                    Materiais_cadastrados[novooleo->get_breve_descricao()] = novooleo;
-                    std::cout<<Materiais_cadastrados.size()<<std::endl;
+                    Material *novooleo= new Oleo (quantidade, descricao, usuario_logado);
+                    Materiais_cadastrados.push_back(novooleo);
+                    novooleo->modo_de_armazenamento();
                     }
                 }
             }
@@ -76,10 +76,11 @@ void CadastroMaterial::cadastrar_material(){
 void CadastroMaterial::imprimir_materiais_cadastrados(){
     std::cout<<"LISTA DE MATERIAIS CADASTRADOS"<<std::endl<<std::endl;
 
-    for (std::map<std::string , Material*>::iterator it = Materiais_cadastrados.begin(); it != Materiais_cadastrados.end(); it++){
-        std::cout<<"Tipo: "<< it->second->get_nome()<<std::endl;
-        std::cout<<"Quantidade: "<<it->second->get_quantidade_em_quilos()<<std::endl;
-        std::cout<<"Descricao: "<<it->second->get_breve_descricao()<<std::endl<<std::endl;
+    for (int i=0; i<Materiais_cadastrados.size(); i++){
+        std::cout<<"Tipo: "<< Materiais_cadastrados[i]->get_nome()<<std::endl;
+        std::cout<<"Quantidade: "<<Materiais_cadastrados[i]->get_quantidade_em_quilos()<<std::endl;
+        std::cout<<"Descricao: "<<Materiais_cadastrados[i]->get_breve_descricao()<<std::endl;
+        std::cout<<"Dono: "<<Materiais_cadastrados[i]->get_dono()->get_nome()<<std::endl<<std::endl;
     }
 
 }
