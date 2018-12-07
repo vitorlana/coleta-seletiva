@@ -18,6 +18,7 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
     int material;
     float quantidade;
     std::string descricao;
+    clear_screen();
     std::cout<<"CADASTRO DE MATERIAL: "<<std::endl<<std::endl;
     std::cout<<"(1)Papel"<<std::endl;
     std::cout<<"(2)Plastico"<<std::endl;
@@ -37,28 +38,33 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
     std::cout<<std::endl;
     std::cout<<"Digite uma breve descricao (25 caracteres) do seu material: ";
     std::cin>>descricao;
+    descricao.resize(25);
 
     if(material==1){
         Material *novopapel= new Papel (quantidade, descricao, usuario_logado);
         Materiais_cadastrados.push_back(novopapel);
+        Mapadonos [usuario_logado->get_nome()] = Materiais_cadastrados;
         novopapel->modo_de_armazenamento();
     }
     else {
         if (material==2){
             Material *novoplastico= new Plastico (quantidade, descricao, usuario_logado);
             Materiais_cadastrados.push_back(novoplastico);
+            Mapadonos [usuario_logado->get_nome()] = Materiais_cadastrados;
             novoplastico->modo_de_armazenamento();
         }
         else {
             if (material==3){
                 Material *novometal= new Metal (quantidade, descricao, usuario_logado);
                 Materiais_cadastrados.push_back(novometal);
+                Mapadonos [usuario_logado->get_nome()] = Materiais_cadastrados;
                 novometal->modo_de_armazenamento();
             }
             else {
                 if (material==4){
                    Material *novovidro= new Vidro (quantidade, descricao, usuario_logado);
                    Materiais_cadastrados.push_back(novovidro);
+                   Mapadonos [usuario_logado->get_nome()] = Materiais_cadastrados;
                    novovidro->modo_de_armazenamento();
 
                 }
@@ -66,6 +72,7 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
                     if (material=5){
                     Material *novooleo= new Oleo (quantidade, descricao, usuario_logado);
                     Materiais_cadastrados.push_back(novooleo);
+                    Mapadonos [usuario_logado->get_nome()] = Materiais_cadastrados;
                     novooleo->modo_de_armazenamento();
                     }
                 }
@@ -75,12 +82,19 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
 }
 void CadastroMaterial::imprimir_materiais_cadastrados(){
     std::cout<<"LISTA DE MATERIAIS CADASTRADOS"<<std::endl<<std::endl;
-
+    if (Materiais_cadastrados.size()>0){
     for (int i=0; i<Materiais_cadastrados.size(); i++){
         std::cout<<"Tipo: "<< Materiais_cadastrados[i]->get_nome()<<std::endl;
         std::cout<<"Quantidade: "<<Materiais_cadastrados[i]->get_quantidade_em_quilos()<<std::endl;
         std::cout<<"Descricao: "<<Materiais_cadastrados[i]->get_breve_descricao()<<std::endl;
         std::cout<<"Dono: "<<Materiais_cadastrados[i]->get_dono()->get_nome()<<std::endl<<std::endl;
+    }}
+    else{
+        std::cout<<"NAO HA MATERIAIS CADASTRADOS!"<<std::endl<<std::endl;
     }
 
+}
+void CadastroMaterial::excluirmaterial(int posicao){
+
+    Materiais_cadastrados.erase(Materiais_cadastrados.begin()+posicao);
 }

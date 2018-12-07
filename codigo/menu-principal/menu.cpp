@@ -17,15 +17,15 @@
 Pessoa *MenuUsuario();
 void MenuPrincipal(Pessoa *usuario);
 void MenuMaterial(Pessoa *usuariologado);
-void MenuCadastroLocal();
+void MenuLocal();
 void MenuCadastroColeta(Pessoa *usuario);
 
 
 int opcao =1 ;
 Pessoa *usuario_logado;
 CadastroUsuario *usuario_cadastro = new CadastroUsuario();
-CadastroMaterial *material_cadastro= new CadastroMaterial();
-
+CadastroMaterial *material_cadastro = new CadastroMaterial();
+//CadastroLocal *local_cadastro= new CadastroLocal();
 int main (){
 
     while (opcao > 0 )
@@ -44,11 +44,16 @@ int main (){
 Pessoa *MenuUsuario(){
 
     int opcao;
-    do
-    {
-        std::cout << "1 - CADASTRO USUARIO / 2 - LOGIN / 0 - SAIR"  << "\n";
-
+    do{
+        std::cout <<"INICIO"<<std::endl<<std::endl;
+        std::cout<<"(1)Cadastro de Usuario"<<std::endl;
+        std::cout<<"(2)Login"<<std::endl;
+        std::cout<<"(3)Sair"<<std::endl;
         std::cin >> opcao;
+        while (opcao<1 || opcao>3){
+            std::cout<<"Opcao invalida! Escolha novamente:"<<std::endl;
+            std::cin>>opcao;
+        }
         switch (opcao)
         {
         case 1:
@@ -59,7 +64,7 @@ Pessoa *MenuUsuario(){
             usuario_cadastro->imprimepessoas();
             usuario_cadastro->login();
             return usuario_cadastro->pessoa_logada;
-        case 0:
+        case 3:
             exit(1);
         }
     }while (opcao > 0);
@@ -85,14 +90,23 @@ void MenuPrincipal(Pessoa *usuario){
     int opcao;
     do
     {
-        std::cout << "1 - CADASTRAR MATERIAL \n 2 - CADATRAR LOCAL \n 3 - AGENDAR COLETA \n 0 - SAIR"  << "\n";
+        std::cout << "MENU PRINCIPAL:"<<std::endl<<std::endl;
+        std::cout<<"(1)Menu Material"<<std::endl;
+        std::cout<<"(2)Menu Local"<<std::endl;
+        std::cout<<"(3)Agendamento de Coletas"<<std::endl;
+        std::cout<<"(4)Sair"<<std::endl;
         std::cin >> opcao;
+        while (opcao<1 || opcao>4){
+            std::cout<<"Opcao invalida! Escolha novamente:"<<std::endl;
+            std::cin>>opcao;
+        }
         switch (opcao)
         {
         case 1:
             MenuMaterial(usuario);
-        case 2:
             break;
+        case 2:
+            MenuLocal();
         case 3:
             MenuCadastroColeta(usuario);
             break;
@@ -103,6 +117,7 @@ void MenuPrincipal(Pessoa *usuario){
 }
 void MenuMaterial(Pessoa* usuario_logado){
     int opcao;
+    clear_screen();
     std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
     std::cout<<"(1)Cadastrar Material"<<std::endl;
     std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
@@ -110,13 +125,12 @@ void MenuMaterial(Pessoa* usuario_logado){
     std::cout<<"Selecione a opcao desejada: ";
     std::cin>>opcao;
     while (opcao<1 || opcao>3){
-        std::cout<<"Opcao invalida. Escolha entre 1 e 3: "<<std::endl;
+        std::cout<<"Opcao invalida! Escolha novamente:"<<std::endl;
         std::cin>>opcao;
     }
     clear_screen();
     if (opcao==1){
         material_cadastro->cadastrar_material(usuario_logado);
-
     }
     else{
         if (opcao==2){
@@ -127,5 +141,27 @@ void MenuMaterial(Pessoa* usuario_logado){
            MenuPrincipal(usuario_cadastro->pessoa_logada);
         }
     }
+}
+
+void MenuLocal(){
+    int opcao;
+    clear_screen();
+    std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
+    std::cout<<"(1)Cadastrar Local"<<std::endl;
+    std::cout<<"(2)Sair"<<std::endl;
+    std::cout<<"Selecione a opcao desejada: ";
+    std::cin>>opcao;
+    while (opcao<1 || opcao>2){
+        std::cout<<"Opcao invalida. Escolha entre 1 e 2: "<<std::endl;
+        std::cin>>opcao;
+    }
+    clear_screen();
+    if(opcao==1){
+        //local_cadastro->cadastro();
+    }
+    else {
+        MenuPrincipal(usuario_cadastro->pessoa_logada);
+    }
+
 }
 

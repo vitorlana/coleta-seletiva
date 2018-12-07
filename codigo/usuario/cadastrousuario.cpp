@@ -20,7 +20,7 @@ Pessoa * CadastroUsuario::login()
 	std::string nomelogin;
 	int flag = 0;
 	int opc;
-
+    clear_screen1();
 	std::cout << std::endl;
 	std::cout << "-- NOVO LOGIN DE USUARIO --" << std::endl;
 	std::cout << std::endl;
@@ -82,7 +82,7 @@ void CadastroUsuario::cadastro()
 	std::string senhausuario;
 	std::string senhausuarioconf;
 	std::string nomeusuario;
-
+    clear_screen1();
 	std::cout << std::endl;
 	std::cout << "CADASTRO DE NOVO USUARIO" << std::endl;
 	std::cout << std::endl;
