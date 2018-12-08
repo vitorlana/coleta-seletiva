@@ -22,7 +22,7 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
 
     }
 
-    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas (at� 30 kg): ";
+    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas (ate 30 kg): ";
     std::cin>>quantidade;
     while (quantidade<0||quantidade>30){
         std::cout<<"Valor invalido, digite novamente:";
@@ -84,6 +84,7 @@ void CadastroMaterial::imprimir_materiais_cadastrados(Pessoa* usuario_logado){
     Materiais_cadastrados = Mapadonos [usuario_logado->get_nome()];
     if (Materiais_cadastrados.size()>0){
     for (int i=0; i<Materiais_cadastrados.size(); i++){
+        std::cout <<"Posicao:" << i+1 << "\n";
         std::cout<<"Tipo: "<< Materiais_cadastrados[i]->get_nome()<<std::endl;
         std::cout<<"Quantidade: "<<Materiais_cadastrados[i]->get_quantidade_em_quilos()<<std::endl;
         std::cout<<"Descricao: "<<Materiais_cadastrados[i]->get_breve_descricao()<<std::endl;
@@ -94,9 +95,9 @@ void CadastroMaterial::imprimir_materiais_cadastrados(Pessoa* usuario_logado){
     }
 
 }
-void CadastroMaterial::excluirmaterial(int posicao){
-
-    Materiais_cadastrados.erase(Materiais_cadastrados.begin()+posicao);
+void CadastroMaterial::excluirmaterial(int posicao, Pessoa* usuario_logado){
+    Mapadonos[usuario_logado->get_nome()].erase(Mapadonos[usuario_logado->get_nome()].begin()+posicao);
+    //Materiais_cadastrados.erase(Materiais_cadastrados.begin()+posicao);
 }
 
 std::vector<Material*> CadastroMaterial::retorna_materiais(Pessoa *usuario_logado)

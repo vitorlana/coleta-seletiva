@@ -106,7 +106,8 @@ void MenuMaterial(Pessoa* usuario_logado){
         std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
         std::cout<<"(1)Cadastrar Material"<<std::endl;
         std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
-        std::cout<<"(3)Sair"<<std::endl<<std::endl;
+        std::cout<<"(3)Excluir Material Cadastrado"<<std::endl;
+        std::cout<<"(4)Sair"<<std::endl<<std::endl;
         std::cout<<"Selecione a opcao desejada: ";
         std::cin >> opcao;
         switch (opcao)
@@ -118,6 +119,14 @@ void MenuMaterial(Pessoa* usuario_logado){
             material_cadastro->imprimir_materiais_cadastrados(usuario_logado);
             break;
         case 3:
+            int pos;
+            system("cls||clear");
+            material_cadastro->imprimir_materiais_cadastrados(usuario_logado);
+            std::cout <<"Insira  a posicao do material" << "\n";
+            std::cin >> pos;
+            material_cadastro->excluirmaterial((pos-1),usuario_logado);
+            break;
+        case 4:
             return;
             break;
         default:
