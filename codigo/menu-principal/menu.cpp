@@ -30,7 +30,7 @@ CadastroLocal *local_cadastro= new CadastroLocal();
 
 int main (int argc, char *argv[ ]){
 
-    while (opcao > 0 )
+    while (opcao >= 0 )
     {
         usuario_logado = MenuUsuario();
         MenuPrincipal(usuario_logado);
@@ -115,7 +115,7 @@ void MenuMaterial(Pessoa* usuario_logado){
             material_cadastro->cadastrar_material(usuario_logado);
             break;
         case 2:
-            material_cadastro->imprimir_materiais_cadastrados();
+            material_cadastro->imprimir_materiais_cadastrados(usuario_logado);
             break;
         case 3:
             return;

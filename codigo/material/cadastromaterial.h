@@ -15,7 +15,7 @@ protected:
 public:
     CadastroMaterial(){};
     void cadastrar_material (Pessoa* usuario_logado);
-    void imprimir_materiais_cadastrados();
+    void imprimir_materiais_cadastrados(Pessoa* usuario_logado);
     void excluirmaterial(int posicao);
     std::vector<Material*> retorna_materiais(Pessoa *usuario_logado);
     std::vector<Material*> vector_materiais;

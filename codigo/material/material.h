@@ -2,7 +2,7 @@
 #define MATERIAL_H_INCLUDED
 #include <iostream>
 #include <string>
-#include "..\usuario\pessoa.h"
+#include "../usuario/pessoa.h"
 class Material {
 protected:
     std::string nome;
