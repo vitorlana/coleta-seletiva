@@ -33,12 +33,17 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
 
     }
 
-    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas: ";
+    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas (até 30 kg): ";
     std::cin>>quantidade;
+    while (quantidade<0||quantidade>30){
+        std::cout<<"Valor invalido, digite novamente:";
+        std::cin>>quantidade;
+        std::cout<<std::endl;
+    }
     std::cout<<std::endl;
-    std::cout<<"Digite uma breve descricao (25 caracteres) do seu material: ";
-    std::cin>>descricao;
-    descricao.resize(25);
+    std::cout<<"Digite uma breve descricao do seu material: ";
+    while (descricao.length() == 0)
+		std::getline(std::cin, descricao);
 
     if(material==1){
         Material *novopapel= new Papel (quantidade, descricao, usuario_logado);

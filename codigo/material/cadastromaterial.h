@@ -11,7 +11,7 @@
 class CadastroMaterial {
 protected:
     std::vector <Material*> Materiais_cadastrados;
-    std::map <std::string, std::vector <Material*>> Mapadonos;
+    std::map <std::string, std::vector <Material*> > Mapadonos;
 public:
     CadastroMaterial(){};
     void cadastrar_material (Pessoa* usuario_logado);

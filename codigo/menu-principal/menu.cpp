@@ -97,7 +97,7 @@ void MenuPrincipal(Pessoa *usuario){
         std::cout<<"(4)Sair"<<std::endl;
         std::cin >> opcao;
         while (opcao<1 || opcao>4){
-            std::cout<<"Opcao invalida! Escolha novamente:"<<std::endl;
+            std::cout<<"Opcao invalida! Escolha novamente: a"<<std::endl;
             std::cin>>opcao;
         }
         switch (opcao)
@@ -111,7 +111,7 @@ void MenuPrincipal(Pessoa *usuario){
             MenuCadastroColeta(usuario);
             break;
         case 4:
-            break;
+            MenuUsuario();
         }
     }while (opcao > 0);
 }
@@ -125,7 +125,7 @@ void MenuMaterial(Pessoa* usuario_logado){
     std::cout<<"Selecione a opcao desejada: ";
     std::cin>>opcao;
     while (opcao<1 || opcao>3){
-        std::cout<<"Opcao invalida! Escolha novamente:"<<std::endl;
+        std::cout<<"Opcao invalida! Escolha novamente: b"<<std::endl;
         std::cin>>opcao;
     }
     clear_screen();
