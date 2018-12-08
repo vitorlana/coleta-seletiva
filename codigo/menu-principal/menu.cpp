@@ -28,7 +28,7 @@ CadastroUsuario *usuario_cadastro = new CadastroUsuario();
 CadastroMaterial *material_cadastro = new CadastroMaterial();
 CadastroLocal *local_cadastro= new CadastroLocal();
 
-int main (){
+int main (int argc, char *argv[ ]){
 
     while (opcao > 0 )
     {
@@ -136,6 +136,8 @@ void MenuCadastroColeta(Pessoa *usuario)
         std::cout << "(2)Ver coletas realizadas" << "\n";
         std::cout << "(3)Sair" << "\n";
 
+        Realiza_Coleta *realiza = new Realiza_Coleta(usuario);
+
     }else if (usuario->get_tipovalor()==2)
     {
         std::cout << "MENU COLETA\n" << "\n";
@@ -143,6 +145,11 @@ void MenuCadastroColeta(Pessoa *usuario)
         std::cout << "(1)Agendar uma Coleta" << "\n";
         std::cout << "(2)Ver coletas agendadas" << "\n";
         std::cout << "(3)Sair" << "\n";
+
+        Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro);
+        agenda->Recebe_vector();
+        std::cin >> opcao;
+
     }
 }
 

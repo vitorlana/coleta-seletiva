@@ -92,3 +92,14 @@ void CadastroMaterial::excluirmaterial(int posicao){
 
     Materiais_cadastrados.erase(Materiais_cadastrados.begin()+posicao);
 }
+
+std::vector<Material*> CadastroMaterial::retorna_materiais(Pessoa *usuario_logado)
+{
+    std::cout <<"Tamanho map " << Mapadonos[usuario_logado->get_nome()].size()<< "\n";
+    std::cout <<"Usuario logado " << usuario_logado->get_nome() << "\n";
+    vector_materiais = Mapadonos[usuario_logado->get_nome()];
+    std::cout <<"Tamanho vector " << vector_materiais.size() << "\n";
+    for(int i=0; vector_materiais.size() < i; i++){
+        std::cout << vector_materiais[i]->get_nome() << "\n";}
+    return Mapadonos[usuario_logado->get_nome()];
+}
