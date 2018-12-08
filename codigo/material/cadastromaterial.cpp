@@ -1,24 +1,13 @@
 #include <iostream>
 #include <vector>
 #include "cadastromaterial.h"
-#include "..\usuario\pessoa.h"
-#include "windows.h"
 int mapa=0;
-void clear_screen(char fill = ' '){
-	COORD tl = { 0,0 };
-	CONSOLE_SCREEN_BUFFER_INFO s;
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	GetConsoleScreenBufferInfo(console, &s);
-	DWORD written, cells = s.dwSize.X * s.dwSize.Y;
-	FillConsoleOutputCharacter(console, fill, cells, tl, &written);
-	FillConsoleOutputAttribute(console, s.wAttributes, cells, tl, &written);
-	SetConsoleCursorPosition(console, tl);
-}
+
 void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
     int material;
     float quantidade;
     std::string descricao;
-    clear_screen();
+    system("cls||clear");
     std::cout<<"CADASTRO DE MATERIAL: "<<std::endl<<std::endl;
     std::cout<<"(1)Papel"<<std::endl;
     std::cout<<"(2)Plastico"<<std::endl;
@@ -33,7 +22,7 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
 
     }
 
-    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas (até 30 kg): ";
+    std::cout<<std::endl<<"Digite a quantidade do seu material em quilogramas (atï¿½ 30 kg): ";
     std::cin>>quantidade;
     while (quantidade<0||quantidade>30){
         std::cout<<"Valor invalido, digite novamente:";

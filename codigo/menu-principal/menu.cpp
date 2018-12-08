@@ -7,12 +7,13 @@
 #include "../material/papel.cpp"
 #include "../material/metal.cpp"
 #include "../material/oleo.cpp"
-//#include "../local/local.cpp"
-//#include "../local/cadastrolocal.cpp"
+#include "../local/local.cpp"
+#include "../local/cadastrolocal.cpp"
 #include "../agendamento/realizacoleta.cpp"
 #include "../agendamento/agendacoleta.cpp"
 #include <iostream>
 #include <iomanip>
+
 
 Pessoa *MenuUsuario();
 void MenuPrincipal(Pessoa *usuario);
@@ -25,7 +26,8 @@ int opcao =1 ;
 Pessoa *usuario_logado;
 CadastroUsuario *usuario_cadastro = new CadastroUsuario();
 CadastroMaterial *material_cadastro = new CadastroMaterial();
-//CadastroLocal *local_cadastro= new CadastroLocal();
+CadastroLocal *local_cadastro= new CadastroLocal();
+
 int main (){
 
     while (opcao > 0 )
@@ -33,11 +35,6 @@ int main (){
         usuario_logado = MenuUsuario();
         MenuPrincipal(usuario_logado);
     }
-
-    //MenuCadastroColeta(usuario);
-    //Realiza_Coleta coleta = Realiza_Coleta(usuario);
-    //coleta.Imprime_dados();
-
     return 0;
 }
 
@@ -60,6 +57,7 @@ Pessoa *MenuUsuario(){
             usuario_cadastro->cadastro();
             break;
         case 2:
+            system("cls||clear");
             std::cout << "USUARIOS DIPONIVEIS PARA LOGIN" << "\n";
             usuario_cadastro->imprimepessoas();
             usuario_cadastro->login();
@@ -68,22 +66,6 @@ Pessoa *MenuUsuario(){
             exit(1);
         }
     }while (opcao > 0);
-}
-
-void MenuCadastroColeta(Pessoa *usuario)
-{
-    if (usuario->get_tipovalor()==1)
-    {
-        std::cout << "Receptor" << "\n";
-        Agenda_Coleta *agendamento = new Agenda_Coleta(usuario);
-        agendamento->Imprime_dados();
-    }else if (usuario->get_tipovalor()==2)
-    {
-        std::cout << "Doador" << "\n";
-    }else
-    {
-        std::cout << "locutafhasdfhasuhfauhsuhd" << "\n";
-    }
 }
 
 void MenuPrincipal(Pessoa *usuario){
@@ -115,9 +97,10 @@ void MenuPrincipal(Pessoa *usuario){
         }
     }while (opcao > 0);
 }
+
 void MenuMaterial(Pessoa* usuario_logado){
     int opcao;
-    clear_screen();
+    system("cls||clear");
     std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
     std::cout<<"(1)Cadastrar Material"<<std::endl;
     std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
@@ -128,7 +111,7 @@ void MenuMaterial(Pessoa* usuario_logado){
         std::cout<<"Opcao invalida! Escolha novamente: b"<<std::endl;
         std::cin>>opcao;
     }
-    clear_screen();
+    system("cls||clear");
     if (opcao==1){
         material_cadastro->cadastrar_material(usuario_logado);
     }
@@ -143,9 +126,29 @@ void MenuMaterial(Pessoa* usuario_logado){
     }
 }
 
+void MenuCadastroColeta(Pessoa *usuario)
+{
+    if (usuario->get_tipovalor()==1)
+    {
+        std::cout << "MENU COLETA\n" << "\n";
+        std::cout << "Como receptor você pode:" << "\n";
+        std::cout << "(1)Realizar uma Coleta" << "\n";
+        std::cout << "(2)Ver coletas realizadas" << "\n";
+        std::cout << "(3)Sair" << "\n";
+
+    }else if (usuario->get_tipovalor()==2)
+    {
+        std::cout << "MENU COLETA\n" << "\n";
+        std::cout << "Como doador você pode:" << "\n";
+        std::cout << "(1)Agendar uma Coleta" << "\n";
+        std::cout << "(2)Ver coletas agendadas" << "\n";
+        std::cout << "(3)Sair" << "\n";
+    }
+}
+
 void MenuLocal(){
     int opcao;
-    clear_screen();
+    system("cls||clear");
     std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
     std::cout<<"(1)Cadastrar Local"<<std::endl;
     std::cout<<"(2)Sair"<<std::endl;
@@ -155,13 +158,12 @@ void MenuLocal(){
         std::cout<<"Opcao invalida. Escolha entre 1 e 2: "<<std::endl;
         std::cin>>opcao;
     }
-    clear_screen();
+    system("cls||clear");
     if(opcao==1){
-        //local_cadastro->cadastro();
+        local_cadastro->cadastro();
     }
     else {
         MenuPrincipal(usuario_cadastro->pessoa_logada);
     }
 
 }
-
