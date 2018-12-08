@@ -1,6 +1,6 @@
 #include "plastico.h"
-Plastico::Plastico(float quantidade_em_quilos, std::string breve_descricao)
-:Material ("Plastico", quantidade_em_quilos, breve_descricao){}
+Plastico::Plastico(float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono)
+:Material ("Plastico", quantidade_em_quilos, breve_descricao, dono){}
 
 void Plastico::modo_de_armazenamento(){
     std::cout<<"SEU MATERIAL FOI CADASTRADO COM SUCESSO!"<<std::endl;

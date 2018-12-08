@@ -4,7 +4,7 @@
 
 class Papel : public Material {
 public:
-    Papel (float quantidade_em_quilos, std::string breve_descricao);
+    Papel (float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono);
     virtual void modo_de_armazenamento() override;
 
 };

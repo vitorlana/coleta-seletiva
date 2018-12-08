@@ -14,7 +14,7 @@ public:
 	std::string get_interessestring();
 	int get_interessevalor();
 	unsigned int get_telefone();
-	
+
 	void set_interessestring(std::string);
 	void set_interessevalor(int);
 	void set_tipostring(std::string);
@@ -37,4 +37,3 @@ private:
 };
 
 #endif
-

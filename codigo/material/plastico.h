@@ -4,7 +4,7 @@
 
 class Plastico : public Material {
 public:
-    Plastico (float quantidade_em_quilos, std::string breve_descricao);
+    Plastico (float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono);
     virtual void modo_de_armazenamento() override;
 
 };

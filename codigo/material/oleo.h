@@ -3,7 +3,7 @@
 #include "material.h"
 class Oleo: public Material {
 public:
-    Oleo (float quantidade_em_quilos, std::string breve_descricao);
+    Oleo (float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono);
     virtual void modo_de_armazenamento() override;
 
 };

@@ -2,7 +2,7 @@
 #define CADASTROLOCAL_H
 
 #include <iostream>
-#include "local.h"
+#include "local2.cpp"
 #include <string>
 #include <vector>
 
@@ -17,4 +17,3 @@ private:
 };
 
 #endif
-

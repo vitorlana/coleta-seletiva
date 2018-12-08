@@ -1,8 +1,8 @@
 #include "cadastromaterial.cpp"
-
+#include "..\local\cadastrolocal.cpp"
 void MenuMaterial();
 void MenuPrincipal();
-
+void MenuLocal();
 void MenuPrincipal (){
     int opcaoprincipal;
     std::cout<<"MENU PRINCIPAL:"<<std::endl<<std::endl;
@@ -17,12 +17,13 @@ void MenuPrincipal (){
         std::cout<<"Opcao invalida. Escolha entre 1 e 5: "<<std::endl;
         std::cin>>opcaoprincipal;
     }
-    clear_screen();
+
     switch (opcaoprincipal){
     case 1:
     case 2:
     MenuMaterial();
     case 3:
+    MenuLocal();
     case 4:
     case 5:
         break;
@@ -42,7 +43,7 @@ void MenuMaterial(){
         std::cout<<"Opcao invalida. Escolha entre 1 e 3: "<<std::endl;
         std::cin>>opcao;
     }
-    clear_screen();
+
     if (opcao==1){
         cadastromaterial.cadastrar_material();
         MenuPrincipal();
@@ -57,3 +58,29 @@ void MenuMaterial(){
         }
     }
 }
+<<<<<<< HEAD
+
+void MenuLocal (){
+    CadastroLocal cadastrolocal = CadastroLocal();
+    int opcao;
+    std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
+    std::cout<<"(1)Cadastrar Local"<<std::endl;
+    std::cout<<"(2)imprimir desejados"<<std::endl;
+    std::cout<<"(3)sair"<<std::endl;
+    std::cin>>opcao;
+    if (opcao==1){
+        cadastrolocal.cadastro();
+        MenuPrincipal();
+    }
+    else{
+        if (opcao==2){
+            std::string x=cadastrolocal.escolheponto();
+            std::cout<<x;
+            MenuPrincipal();
+        }
+        else
+            MenuPrincipal();
+    }
+}
+=======
+>>>>>>> vitor-agendamento
