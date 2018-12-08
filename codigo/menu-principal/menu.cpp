@@ -93,7 +93,7 @@ void MenuPrincipal(Pessoa *usuario){
             MenuCadastroColeta(usuario);
             break;
         case 4:
-            MenuUsuario();
+            return;
         }
     }while (opcao > 0);
 }
@@ -101,29 +101,30 @@ void MenuPrincipal(Pessoa *usuario){
 void MenuMaterial(Pessoa* usuario_logado){
     int opcao;
     system("cls||clear");
-    std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
-    std::cout<<"(1)Cadastrar Material"<<std::endl;
-    std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
-    std::cout<<"(3)Sair"<<std::endl<<std::endl;
-    std::cout<<"Selecione a opcao desejada: ";
-    std::cin>>opcao;
-    while (opcao<1 || opcao>3){
-        std::cout<<"Opcao invalida! Escolha novamente: b"<<std::endl;
-        std::cin>>opcao;
-    }
-    system("cls||clear");
-    if (opcao==1){
-        material_cadastro->cadastrar_material(usuario_logado);
-    }
-    else{
-        if (opcao==2){
+    do
+    {
+        std::cout<<"MENU MATERIAL:"<<std::endl<<std::endl;
+        std::cout<<"(1)Cadastrar Material"<<std::endl;
+        std::cout<<"(2)Visualizar Materiais cadastrados"<<std::endl;
+        std::cout<<"(3)Sair"<<std::endl<<std::endl;
+        std::cout<<"Selecione a opcao desejada: ";
+        std::cin >> opcao;
+        switch (opcao)
+        {
+        case 1:
+            material_cadastro->cadastrar_material(usuario_logado);
+            break;
+        case 2:
             material_cadastro->imprimir_materiais_cadastrados();
-            MenuPrincipal(usuario_cadastro->pessoa_logada);
+            break;
+        case 3:
+            return;
+            break;
+        default:
+            std::cout << "Tente novamente" << "\n";
         }
-        else{
-           MenuPrincipal(usuario_cadastro->pessoa_logada);
-        }
-    }
+    } while (opcao != 3);
+    system("cls||clear");
 }
 
 void MenuCadastroColeta(Pessoa *usuario)
@@ -147,6 +148,7 @@ void MenuCadastroColeta(Pessoa *usuario)
         std::cout << "(3)Sair" << "\n";
 
         Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro);
+        agenda->Imprime_dados();
         agenda->Recebe_vector();
         std::cin >> opcao;
 

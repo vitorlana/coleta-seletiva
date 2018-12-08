@@ -16,6 +16,7 @@ public:
 	Pessoa *pessoa_logada;
 	bool find(std::string);
 	void imprimepessoas();
+	void sair();
 private:
 	std::map<std::string, Pessoa*> _mapcadastro;
 };

@@ -29,7 +29,7 @@ Pessoa * CadastroUsuario::login()
 			if (flag == 0) {
 				std::cout << "-->> LOGIN NAO ENCONTRADO <<--" << std::endl;
 				std::cout << std::endl;
-				std::cout << "DESEJA CADASTAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
+				std::cout << "DESEJA CADASTRAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
 				std::cin >> opc;
 				switch (opc)
 				{
@@ -37,7 +37,9 @@ Pessoa * CadastroUsuario::login()
 					CadastroUsuario::cadastro();
 					break;
 				case 2:
-					exit(1);
+					CadastroUsuario::sair();
+					break;
+					//exit(0);
 				}
 
 			}
@@ -180,4 +182,8 @@ void CadastroUsuario::imprimepessoas()
 		count++;
 	}
 	std::cout << std::endl;
+}
+
+void CadastroUsuario::sair(){
+	return;
 }
