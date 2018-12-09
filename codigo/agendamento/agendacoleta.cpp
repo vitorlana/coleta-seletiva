@@ -17,6 +17,10 @@ void Agenda_Coleta::Imprime_dados(){
     }
 }
 
+std::vector<Coleta *> Agenda_Coleta::get_vector(){
+    return vec_coletas;
+}
+
 void Agenda_Coleta::Recebe_vector()
 {
     vector_materiais = materiais->retorna_materiais(doador);

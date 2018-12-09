@@ -28,6 +28,7 @@ CadastroUsuario *usuario_cadastro = new CadastroUsuario();
 CadastroMaterial *material_cadastro = new CadastroMaterial();
 CadastroLocal *local_cadastro= new CadastroLocal();
 Agenda_Coleta *agenda = new Agenda_Coleta();
+Realiza_Coleta *coleta_r = new Realiza_Coleta();
 
 int main (int argc, char *argv[ ]){
 
@@ -142,13 +143,25 @@ void MenuCadastroColeta(Pessoa *usuario)
 {
     if (usuario->get_tipovalor()==1)
     {
-        std::cout << "MENU COLETA\n" << "\n";
-        std::cout << "Como receptor voce pode:" << "\n";
-        std::cout << "(1)Realizar uma Coleta" << "\n";
-        std::cout << "(2)Ver coletas realizadas" << "\n";
-        std::cout << "(3)Sair" << "\n";
-
-        Realiza_Coleta *realiza = new Realiza_Coleta(usuario);
+        do {
+            std::cout << "MENU COLETA\n" << "\n";
+            std::cout << "Como receptor voce pode:" << "\n";
+            std::cout << "(1)Realizar uma Coleta" << "\n";
+            std::cout << "(2)Ver coletas realizadas" << "\n";
+            std::cout << "(3)Sair" << "\n";
+            std::cin >> opcao;
+            switch (opcao) {
+                case 1:
+                    coleta_r->Realizar_Coleta(agenda->get_vector(),usuario,material_cadastro);
+                    break;
+                case 2:
+                    coleta_r->Imprime_Coletas_Realizadas(agenda->get_vector(),usuario);
+                    break;
+                case 3:
+                    return;
+                    break;
+            }
+        } while(opcao != 3);
 
     }else if (usuario->get_tipovalor()==2)
     {
@@ -165,6 +178,7 @@ void MenuCadastroColeta(Pessoa *usuario)
                     break;
                 case 2:
                     agenda->Imprime_dados();
+                    break;
                 case 3:
                     return;
                     break;

@@ -29,6 +29,7 @@ public:
     std::string get_local_coleta();
     std::string get_doador();
     std::string get_receptor();
+    bool get_status();
 
 };
 

@@ -25,6 +25,7 @@ public:
     std::vector<Material*> vector_materiais;
     std::vector<Coleta *> vec_coletas;
     void Imprime_dados();
+    std::vector<Coleta *> get_vector();
     void Recebe_vector();
     void Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materiais, CadastroLocal *locais, CadastroUsuario *lista_usuarios);
 

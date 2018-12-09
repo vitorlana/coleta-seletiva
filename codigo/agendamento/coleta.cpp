@@ -16,3 +16,4 @@ int Coleta::get_posicao_vetor(){ return posicao_vetor;}
 std::string Coleta::get_local_coleta(){return local_coleta;}
 std::string Coleta::get_doador(){return doador;}
 std::string Coleta::get_receptor(){return receptor;}
+bool Coleta::get_status(){return Coleta_realizada;}
