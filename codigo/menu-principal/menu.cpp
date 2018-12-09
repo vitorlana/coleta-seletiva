@@ -89,6 +89,7 @@ void MenuPrincipal(Pessoa *usuario){
             break;
         case 2:
             MenuLocal();
+            break;
         case 3:
             MenuCadastroColeta(usuario);
             break;
@@ -171,13 +172,12 @@ void MenuLocal(){
         std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
         std::cout<<"(1)Cadastrar Local"<<std::endl;
         std::cout<<"(2)Ver Locais Cadastrados"<<std::endl;
-        std::cout<<"(3)Atualizar Local"<<std::endl;
-        std::cout<<"(4)Excluir Local"<<std::endl;
-        std::cout<<"(5)Sair"<<std::endl<<std::endl;
+        std::cout<<"(3)Excluir Local"<<std::endl;
+        std::cout<<"(4)Sair"<<std::endl<<std::endl;
         std::cout<<"Selecione a opcao desejada: ";
         std::cin>>opcao;
-        while (opcao<1 || opcao>2){
-            std::cout<<"Opcao invalida. Escolha entre 1 e 2: "<<std::endl;
+        while (opcao<1 || opcao>6){
+            std::cout<<"Opcao invalida. Escolha entre 1 e 4: "<<std::endl;
             std::cin>>opcao;
         }
         system("cls||clear");
@@ -190,12 +190,9 @@ void MenuLocal(){
             local_cadastro->imprime_locais();
             break;
         case 3:
-            /* code */
+            local_cadastro->excluir_local();
             break;
         case 4:
-            /* code */
-            break;
-        case 5:
             return;
             break;
         }

@@ -11,7 +11,7 @@ class CadastroLocal
 public:
 	CadastroLocal() {};
 	void cadastro();
-	std::string escolheponto();
+	int escolheponto();
 	void imprime_locais();
 	void excluir_local();
 private:
