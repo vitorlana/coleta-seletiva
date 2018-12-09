@@ -25,6 +25,11 @@ public:
     Coleta(int posicao_vetor, std::string local_coleta, std::string doador, std::string receptor);
     void add_vector_coletas(Coleta *coleta);
     void set_coleta_realizada();
+    int get_posicao_vetor();
+    std::string get_local_coleta();
+    std::string get_doador();
+    std::string get_receptor();
+
 };
 
 #endif

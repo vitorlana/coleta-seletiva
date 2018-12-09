@@ -152,17 +152,24 @@ void MenuCadastroColeta(Pessoa *usuario)
 
     }else if (usuario->get_tipovalor()==2)
     {
-        std::cout << "MENU COLETA\n" << "\n";
-        std::cout << "Como doador voce pode:" << "\n";
-        std::cout << "(1)Agendar uma Coleta" << "\n";
-        //std::cout << "(2)Ver coletas agendadas" << "\n";
-        //std::cout << "(3)Sair" << "\n";
-
-        //Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro,local_cadastro,usuario_cadastro);
-        agenda->Realiza_Agendamento(usuario, material_cadastro,local_cadastro,usuario_cadastro);
-        //agenda->Recebe_vector();
-        std::cin >> opcao;
-
+        do {
+            std::cout << "MENU COLETA\n" << "\n";
+            std::cout << "Como doador voce pode:" << "\n";
+            std::cout << "(1)Agendar uma Coleta" << "\n";
+            std::cout << "(2)Ver coletas agendadas" << "\n";
+            std::cout << "(3)Sair" << "\n";
+            std::cin >> opcao;
+            switch (opcao) {
+                case 1:
+                    agenda->Realiza_Agendamento(usuario, material_cadastro,local_cadastro,usuario_cadastro);
+                    break;
+                case 2:
+                    agenda->Imprime_dados();
+                case 3:
+                    return;
+                    break;
+            }
+        } while(opcao != 3);
     }
 }
 
