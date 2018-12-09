@@ -47,8 +47,8 @@ void Agenda_Coleta::Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materia
     std::cout << "INSIRA O NOME DO USUARIO QUE IRÁ REALIZAR A COLETA" << '\n';
     std::cout << "OS USUARIOS DISPONIVEIS PARA ESCOLHA DE RECOLHER SAO:" << std::endl<< std::endl;
     lista_usuarios->imprimepessoas();
-    while (nome_doador_material.length() == 0)
-		std::getline(std::cin, nome_doador_material);
+    while (nome_realizar_coleta.length() == 0)
+		std::getline(std::cin, nome_realizar_coleta);
     Coleta *coleta =  new Coleta(posicao_vetor,local_realizar_coleta,nome_doador_material,nome_realizar_coleta);
     vec_coletas.push_back(coleta);
     std::cout << "COLETA AGENDADA COM SUCESSO" << '\n';
