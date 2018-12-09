@@ -28,7 +28,7 @@ std::string CadastroLocal::escolheponto()
 	int count = 0;
 
 	for (unsigned int i = 0; i < _locaisvector.size(); i++) {
-		std::cout << "Local: " << _locaisvector.at(i)->get_local() << " - Tag: (" << count << ")" << std::endl;
+		std::cout << "Local: " << _locaisvector.at(i)->get_local() << " - Tag: (" << count+1 << ")" << std::endl;
 		count++;
 	}
 
@@ -43,4 +43,21 @@ std::string CadastroLocal::escolheponto()
 		if (i == tag)
 			return _locaisvector.at(i)->get_local();
 	}
+}
+
+void CadastroLocal::imprime_locais()
+{
+	std::cout << std::endl;
+	std::cout << "Listagem de todos os locais de encontro cadastrados: " << std::endl;
+	std::cout << std::endl;
+
+	int count = 0;
+
+	for (unsigned int i = 0; i < _locaisvector.size(); i++) {
+		std::cout << "Local: " << _locaisvector.at(i)->get_local() << std::endl;
+	}
+}
+
+void excluir_local(){
+	std::cout << "Escolha um local para remover" << "\n";
 }

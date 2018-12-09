@@ -132,7 +132,7 @@ void MenuMaterial(Pessoa* usuario_logado){
         default:
             std::cout << "Tente novamente" << "\n";
         }
-    } while (opcao != 3);
+    } while (opcao != 4);
     system("cls||clear");
 }
 
@@ -160,28 +160,45 @@ void MenuCadastroColeta(Pessoa *usuario)
         agenda->Imprime_dados();
         agenda->Recebe_vector();
         std::cin >> opcao;
-
     }
 }
 
 void MenuLocal(){
     int opcao;
     system("cls||clear");
-    std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
-    std::cout<<"(1)Cadastrar Local"<<std::endl;
-    std::cout<<"(2)Sair"<<std::endl;
-    std::cout<<"Selecione a opcao desejada: ";
-    std::cin>>opcao;
-    while (opcao<1 || opcao>2){
-        std::cout<<"Opcao invalida. Escolha entre 1 e 2: "<<std::endl;
+    do
+    {
+        std::cout<<"MENU LOCAL:"<<std::endl<<std::endl;
+        std::cout<<"(1)Cadastrar Local"<<std::endl;
+        std::cout<<"(2)Ver Locais Cadastrados"<<std::endl;
+        std::cout<<"(3)Atualizar Local"<<std::endl;
+        std::cout<<"(4)Excluir Local"<<std::endl;
+        std::cout<<"(5)Sair"<<std::endl<<std::endl;
+        std::cout<<"Selecione a opcao desejada: ";
         std::cin>>opcao;
-    }
-    system("cls||clear");
-    if(opcao==1){
-        local_cadastro->cadastro();
-    }
-    else {
-        MenuPrincipal(usuario_cadastro->pessoa_logada);
-    }
+        while (opcao<1 || opcao>2){
+            std::cout<<"Opcao invalida. Escolha entre 1 e 2: "<<std::endl;
+            std::cin>>opcao;
+        }
+        system("cls||clear");
+        switch (opcao)
+        {
+        case 1:
+            local_cadastro->cadastro();
+            break;
+        case 2:
+            local_cadastro->imprime_locais();
+            break;
+        case 3:
+            /* code */
+            break;
+        case 4:
+            /* code */
+            break;
+        case 5:
+            return;
+            break;
+        }
+    } while (opcao != 5);
 
 }

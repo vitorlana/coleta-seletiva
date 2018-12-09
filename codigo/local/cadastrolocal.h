@@ -2,7 +2,7 @@
 #define CADASTROLOCAL_H
 
 #include <iostream>
-#include "local2.cpp"
+#include "local.h"
 #include <string>
 #include <vector>
 
@@ -12,6 +12,8 @@ public:
 	CadastroLocal() {};
 	void cadastro();
 	std::string escolheponto();
+	void imprime_locais();
+	void excluir_local();
 private:
 	std::vector<Local*> _locaisvector;
 };
