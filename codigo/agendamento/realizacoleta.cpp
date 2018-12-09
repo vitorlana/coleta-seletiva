@@ -31,14 +31,18 @@ void Realiza_Coleta::Imprime_Coletas_Realizadas(std::vector<Coleta*> coletas_dis
 
 void Realiza_Coleta::Realizar_Coleta(std::vector<Coleta*> coletas_disponiveis, Pessoa *usuario,CadastroMaterial *materiais){
     int n_coleta;
+    Coleta *aux;
     system("cls||clear");
     std::cout << "ESSAS SÃO AS COLETAS QUE VOCE PODE REALIZAR" << '\n';
     std::cout << "ESCOLHA UMA DAS COLETAS INDICANDO O NUMERO NA FRENTE DELAS:" << '\n';
     Imprime_Coletas_ARealizar(coletas_disponiveis,usuario);
     std::cout << "INSIRA O NUMERO DA COLETA QUE QUER REALIZAR:" << '\n';
     std::cin >> n_coleta;
-    Recebe_vector(materiais,get_coleta(coletas_disponiveis,coletas_disponiveis.at(n_coleta)->get_posicao_vetor()).get_doador());
-    vector_materiais.erase(vector_materiais.begin()+n_coleta);
+    //Recebe_vector(materiais,get_coleta(coletas_disponiveis,coletas_disponiveis.at(n_coleta)->get_posicao_vetor()).get_doador());
+    *aux = get_coleta(coletas_disponiveis,n_coleta);
+    materiais->excluir_material(aux->get_posicao_vetor(), aux->get_doador());
+    aux->set_coleta_realizada();
+    //vector_materiais.erase(vector_materiais.begin()+n_coleta);
     std::cout << "COLETA REALIZDA COM SUCESSO" << '\n';
 }
 
