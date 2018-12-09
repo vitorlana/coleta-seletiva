@@ -11,6 +11,7 @@
 #include "../local/cadastrolocal.cpp"
 #include "../agendamento/realizacoleta.cpp"
 #include "../agendamento/agendacoleta.cpp"
+#include "../agendamento/coleta.cpp"
 #include <iostream>
 #include <iomanip>
 
