@@ -4,7 +4,7 @@
 void Realiza_Coleta::Imprime_Coletas_ARealizar(std::vector<Coleta*> coletas_disponiveis, Pessoa *usuario)
 {
     for (int i=0; i<coletas_disponiveis.size();i++) {
-        if (coletas_disponiveis.at(i)->get_receptor() == usuario->get_nome()){
+        if (coletas_disponiveis.at(i)->get_receptor() == usuario->get_nome() && coletas_disponiveis.at(i)->get_status() == false ){
             std::cout << "NUMERO DA COLETA :"<< i << '\n';
             std::cout << "NUMERO DO MATERIAL :" << coletas_disponiveis.at(i)->get_posicao_vetor() << '\n';
             std::cout << "LOCAL DE COLETA DO MATERIAL:"<<coletas_disponiveis.at(i)->get_local_coleta() << '\n';
@@ -24,7 +24,7 @@ void Realiza_Coleta::Imprime_Coletas_Realizadas(std::vector<Coleta*> coletas_dis
             std::cout << "NUMERO DO MATERIAL :" << coletas_disponiveis.at(i)->get_posicao_vetor() << '\n';
             std::cout << "LOCAL DE COLETA DO MATERIAL:"<<coletas_disponiveis.at(i)->get_local_coleta() << '\n';
             std::cout << "DOADOR DO MATERIAL:"<<coletas_disponiveis.at(i)->get_doador() << '\n';
-            std::cout << "RECEPTOR DO MATERIAL:"<<coletas_disponiveis.at(i)->get_receptor() << '\n';
+            std::cout << "RECEPTOR DO MATERIAL:"<<coletas_disponiveis.at(i)->get_receptor() << '\n\n';
             }
         }
 }
@@ -37,7 +37,7 @@ void Realiza_Coleta::Realizar_Coleta(std::vector<Coleta*> coletas_disponiveis, P
     Imprime_Coletas_ARealizar(coletas_disponiveis,usuario);
     std::cout << "INSIRA O NUMERO DA COLETA QUE QUER REALIZAR:" << '\n';
     std::cin >> n_coleta;
-    Recebe_vector(materiais,get_coleta(coletas_disponiveis,n_coleta).get_doador());
+    Recebe_vector(materiais,get_coleta(coletas_disponiveis,coletas_disponiveis.at(n_coleta)->get_posicao_vetor()).get_doador());
     vector_materiais.erase(vector_materiais.begin()+n_coleta);
     std::cout << "COLETA REALIZDA COM SUCESSO" << '\n';
 }
