@@ -42,11 +42,13 @@ void Agenda_Coleta::Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materia
     std::cout << "OS LOCAIS DISPONIVEIS PARA DEPOSITO SAO (CASO VAZIO INSIRA UM NOVO) :" << std::endl<< std::endl;
     locais->imprime_locais();
     std::cout << "INSIRA O LOCAL QUE QUER AGENDAR UMA COLETA:" << '\n';
-    std::getline(std::cin, local_realizar_coleta);
+    while (local_realizar_coleta.length() == 0)
+		std::getline(std::cin, local_realizar_coleta);
     std::cout << "INSIRA O NOME DO USUARIO QUE IRÁ REALIZAR A COLETA" << '\n';
     std::cout << "OS USUARIOS DISPONIVEIS PARA ESCOLHA DE RECOLHER SAO:" << std::endl<< std::endl;
     lista_usuarios->imprimepessoas();
-    std::getline(std::cin, nome_realizar_coleta);
+    while (nome_doador_material.length() == 0)
+		std::getline(std::cin, nome_doador_material);
     Coleta *coleta =  new Coleta(posicao_vetor,local_realizar_coleta,nome_doador_material,nome_realizar_coleta);
     vec_coletas.push_back(coleta);
     std::cout << "COLETA AGENDADA COM SUCESSO" << '\n';
