@@ -5,7 +5,7 @@
 
 class Metal : public Material {
 public:
-    Metal (float quantidade_em_quilos, std::string breve_descricao);
+    Metal (float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono);
     virtual void modo_de_armazenamento() override;
 
 };

@@ -4,6 +4,8 @@
 #include "../usuario/pessoa.h"
 //#include "../material/material.h"
 //#include "../local/local.h"
+#include <vector>
+#include <map>
 
 class Realiza_Coleta{
 protected:

@@ -1,0 +1,6 @@
+C:\Users\vitor\AppData\Local\Temp\ccOF0hFy.o:agendacoleta.cpp:(.text+0x44): undefined reference to `Pessoa::get_nome[abi:cxx11]()'
+C:\Users\vitor\AppData\Local\Temp\ccOF0hFy.o:agendacoleta.cpp:(.text+0x86): undefined reference to `Pessoa::get_endereco[abi:cxx11]()'
+C:\Users\vitor\AppData\Local\Temp\ccOF0hFy.o:agendacoleta.cpp:(.text+0x110): undefined reference to `CadastroMaterial::retorna_materiais(Pessoa*)'
+C:\Users\vitor\AppData\Local\Temp\ccOF0hFy.o:agendacoleta.cpp:(.text+0x1ba): undefined reference to `Material::get_nome[abi:cxx11]()'
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../libmingw32.a(main.o):(.text.startup+0xa0): undefined reference to `WinMain@16'
+collect2.exe: error: ld returned 1 exit status

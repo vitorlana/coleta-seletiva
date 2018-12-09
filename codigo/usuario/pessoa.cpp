@@ -74,7 +74,7 @@ void Pessoa::set_interessevalor(int interesseV)
 
 	switch (interesseV)
 	{
-	default: 
+	default:
 		std::cout << "ERROR SET INTERESSE" << std::endl;
 	case 1:
 		_interesseS = "Papel";
@@ -91,7 +91,7 @@ void Pessoa::set_interessevalor(int interesseV)
 	case 5:
 		_interesseS = "Outros";
 		break;
-	
+
 		break;
 	}
 }
@@ -104,8 +104,6 @@ void Pessoa::set_tipostring(std::string tipostring)
 		_tipoV = 1;
 	else if (_tipoS == "Doador")
 		_tipoV = 2;
-	else if (_tipoS == "Doador/Receptor")
-		_tipoV = 3;
 	else
 		std::cout << "ERROR SET TIPO" << std::endl;
 }
@@ -124,9 +122,6 @@ void Pessoa::set_tipovalor(int tipovalor)
 		break;
 	case 2:
 		_tipoS = "Doador";
-		break;
-	case 3:
-		_tipoS = "Doador/Receptor";
 		break;
 	}
 }

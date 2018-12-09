@@ -1,18 +1,5 @@
 #include "cadastrousuario.h"
 #include <iomanip>
-#include "windows.h"
-
-void clear_screen1(char fill = ' ')
-{
-	COORD tl = { 0,0 };
-	CONSOLE_SCREEN_BUFFER_INFO s;
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	GetConsoleScreenBufferInfo(console, &s);
-	DWORD written, cells = s.dwSize.X * s.dwSize.Y;
-	FillConsoleOutputCharacter(console, fill, cells, tl, &written);
-	FillConsoleOutputAttribute(console, s.wAttributes, cells, tl, &written);
-	SetConsoleCursorPosition(console, tl);
-}
 
 Pessoa * CadastroUsuario::login()
 {
@@ -20,7 +7,6 @@ Pessoa * CadastroUsuario::login()
 	std::string nomelogin;
 	int flag = 0;
 	int opc;
-
 	std::cout << std::endl;
 	std::cout << "-- NOVO LOGIN DE USUARIO --" << std::endl;
 	std::cout << std::endl;
@@ -43,7 +29,7 @@ Pessoa * CadastroUsuario::login()
 			if (flag == 0) {
 				std::cout << "-->> LOGIN NAO ENCONTRADO <<--" << std::endl;
 				std::cout << std::endl;
-				std::cout << "DESEJA CADASTAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
+				std::cout << "DESEJA CADASTRAR ESSE USUARIO\n1 - SIM / 2 - NAO"  << "\n";
 				std::cin >> opc;
 				switch (opc)
 				{
@@ -51,7 +37,9 @@ Pessoa * CadastroUsuario::login()
 					CadastroUsuario::cadastro();
 					break;
 				case 2:
-					exit(1);
+					CadastroUsuario::sair();
+					break;
+					//exit(0);
 				}
 
 			}
@@ -67,7 +55,7 @@ Pessoa * CadastroUsuario::login()
 		}
 	} while ((_mapcadastro.find(nomelogin)->second->get_senha()) != senhalogin);
 
-	clear_screen1();
+	system("cls||clear");
 
 	std::cout << std::endl;
 	std::cout << "-- LOGIN REALIZADO COM SUCESSO! --" << std::endl;
@@ -82,7 +70,7 @@ void CadastroUsuario::cadastro()
 	std::string senhausuario;
 	std::string senhausuarioconf;
 	std::string nomeusuario;
-
+    system("cls||clear");
 	std::cout << std::endl;
 	std::cout << "CADASTRO DE NOVO USUARIO" << std::endl;
 	std::cout << std::endl;
@@ -140,7 +128,6 @@ void CadastroUsuario::cadastro()
 		std::cout << "Selecione o seu interesse material a ser depositado" << std::endl;
 		std::cout << "1 para Receptor" << std::endl;
 		std::cout << "2 para Doador" << std::endl;
-		std::cout << "3 para Doador e Receptor" << std::endl;
 		std::cout << "Insert: ";
 		std::cin >> tipo;
 
@@ -167,7 +154,7 @@ void CadastroUsuario::cadastro()
 	Pessoa * newusuario = new Pessoa(nomeusuario, senhausuario, endereco, interesse, tipo, telefone);
 
 	_mapcadastro[newusuario->get_nome()] = newusuario;
-	clear_screen1();
+	system("cls||clear");
 	std::cout << "-> CADASTRO REALIZADO COM SUCESSO, " << newusuario->get_nome() << "!" << std::endl;
 	std::cout << std::endl;
 }
@@ -195,4 +182,8 @@ void CadastroUsuario::imprimepessoas()
 		count++;
 	}
 	std::cout << std::endl;
+}
+
+void CadastroUsuario::sair(){
+	return;
 }

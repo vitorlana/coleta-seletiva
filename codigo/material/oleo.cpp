@@ -1,6 +1,6 @@
-#include "Oleo.h"
-Oleo::Oleo(float quantidade_em_quilos, std::string breve_descricao)
-:Material ("Oleo", quantidade_em_quilos, breve_descricao){}
+#include "oleo.h"
+Oleo::Oleo(float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono)
+:Material ("Oleo", quantidade_em_quilos, breve_descricao, dono){}
 
 void Oleo::modo_de_armazenamento(){
     std::cout<<"SEU MATERIAL FOI CADASTRADO COM SUCESSO!"<<std::endl;

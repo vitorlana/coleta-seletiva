@@ -1,8 +1,9 @@
 #include "material.h"
-Material::Material(std::string nome, float quantidade_em_quilos, std::string breve_descricao){
+Material::Material(std::string nome, float quantidade_em_quilos, std::string breve_descricao, Pessoa* dono){
     this->nome=nome;
     this->quantidade_em_quilos=quantidade_em_quilos;
     this->breve_descricao=breve_descricao;
+    this->dono=dono;
 }
 void Material::modo_de_armazenamento(){
     //std::cout<< "modo de armazenamento"<< std::endl;
@@ -16,4 +17,7 @@ std::string Material::get_breve_descricao(){
 }
 float Material::get_quantidade_em_quilos(){
     return quantidade_em_quilos;
+}
+Pessoa* Material::get_dono(){
+    return dono;
 }
