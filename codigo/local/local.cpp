@@ -1,4 +1,5 @@
 #include "local.h"
+Local::Local(){}
 
 Local::Local(std::string novolocal)
 {
@@ -14,5 +15,3 @@ void Local::set_local(std::string novolocal)
 {
 	_local = novolocal;
 }
-
-

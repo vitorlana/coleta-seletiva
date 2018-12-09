@@ -14,7 +14,6 @@
 #include <iostream>
 #include <iomanip>
 
-
 Pessoa *MenuUsuario();
 void MenuPrincipal(Pessoa *usuario);
 void MenuMaterial(Pessoa *usuariologado);
@@ -142,7 +141,7 @@ void MenuCadastroColeta(Pessoa *usuario)
     if (usuario->get_tipovalor()==1)
     {
         std::cout << "MENU COLETA\n" << "\n";
-        std::cout << "Como receptor você pode:" << "\n";
+        std::cout << "Como receptor voce pode:" << "\n";
         std::cout << "(1)Realizar uma Coleta" << "\n";
         std::cout << "(2)Ver coletas realizadas" << "\n";
         std::cout << "(3)Sair" << "\n";
@@ -152,15 +151,16 @@ void MenuCadastroColeta(Pessoa *usuario)
     }else if (usuario->get_tipovalor()==2)
     {
         std::cout << "MENU COLETA\n" << "\n";
-        std::cout << "Como doador você pode:" << "\n";
+        std::cout << "Como doador voce pode:" << "\n";
         std::cout << "(1)Agendar uma Coleta" << "\n";
-        std::cout << "(2)Ver coletas agendadas" << "\n";
-        std::cout << "(3)Sair" << "\n";
+        //std::cout << "(2)Ver coletas agendadas" << "\n";
+        //std::cout << "(3)Sair" << "\n";
 
-        Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro);
-        agenda->Imprime_dados();
-        agenda->Recebe_vector();
+        Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro,local_cadastro,usuario_cadastro);
+        agenda->Realiza_Agendamento();
+        //agenda->Recebe_vector();
         std::cin >> opcao;
+
     }
 }
 
@@ -176,7 +176,7 @@ void MenuLocal(){
         std::cout<<"(4)Sair"<<std::endl<<std::endl;
         std::cout<<"Selecione a opcao desejada: ";
         std::cin>>opcao;
-        while (opcao<1 || opcao>6){
+        while (opcao<1 || opcao>5){
             std::cout<<"Opcao invalida. Escolha entre 1 e 4: "<<std::endl;
             std::cin>>opcao;
         }

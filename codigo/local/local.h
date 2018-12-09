@@ -5,6 +5,7 @@
 class Local
 {
 public:
+	Local();
 	Local(std::string novolocal);
 	std::string get_local();
 	void set_local(std::string);

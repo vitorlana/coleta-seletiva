@@ -1,0 +1,2 @@
+C:\Users\vitor\AppData\Local\Temp\cc11DJpw.o:menu.cpp:(.text+0x3547): undefined reference to `Coleta::Coleta(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+collect2.exe: error: ld returned 1 exit status

@@ -8,7 +8,5 @@ Realiza_Coleta::Realiza_Coleta(Pessoa *receptor)
 
 void Realiza_Coleta::Imprime_dados()
 {
-    std::cout << receptor->get_nome() << "\n";
-    std::cout << receptor->get_endereco() << "\n";
 
 }
