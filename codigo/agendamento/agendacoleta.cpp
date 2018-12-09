@@ -1,5 +1,5 @@
 #include "agendacoleta.h"
-
+#include <vector>
 Agenda_Coleta::Agenda_Coleta(Pessoa *doador,CadastroMaterial *materiais, CadastroLocal *locais, CadastroUsuario *lista_usuarios)
 {
     this->doador = doador;
@@ -40,10 +40,8 @@ void Agenda_Coleta::Realiza_Agendamento()
     lista_usuarios->imprimepessoas();
     std::cin >> nome_realizar_coleta;
     Coleta *coleta =  new Coleta(posicao_vetor,local_realizar_coleta,nome_doador_material,nome_realizar_coleta);
-    add_vector_coletas(coleta);
+    vec_coletas.push_back(coleta);
     return;
 }
 
-void Agenda_Coleta::add_vector_coletas(Coleta *coleta){
-        vec_coletas.push_back(coleta);
-}
+

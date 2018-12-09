@@ -11,6 +11,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <vector>
 
 class Agenda_Coleta{
 protected:
@@ -25,7 +26,7 @@ public:
     void Imprime_dados();
     void Recebe_vector();
     void Realiza_Agendamento();
-    void add_vector_coletas(Coleta *coleta);
+
 };
 
 #endif
