@@ -17,7 +17,7 @@ void Agenda_Coleta::Recebe_vector()
         std::cout << vector_materiais[i]->get_nome() << "\n";}
 }
 
-void Agenda_Coleta::Realiza_Agendamento()
+void Agenda_Coleta::Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materiais, CadastroLocal *locais, CadastroUsuario *lista_usuarios)
 {
     int posicao_vetor;
     std::string nome_realizar_coleta;
@@ -43,5 +43,3 @@ void Agenda_Coleta::Realiza_Agendamento()
     vec_coletas.push_back(coleta);
     return;
 }
-
-

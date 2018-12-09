@@ -27,6 +27,7 @@ Pessoa *usuario_logado;
 CadastroUsuario *usuario_cadastro = new CadastroUsuario();
 CadastroMaterial *material_cadastro = new CadastroMaterial();
 CadastroLocal *local_cadastro= new CadastroLocal();
+Agenda_Coleta *agenda = new Agenda_Coleta();
 
 int main (int argc, char *argv[ ]){
 
@@ -157,8 +158,8 @@ void MenuCadastroColeta(Pessoa *usuario)
         //std::cout << "(2)Ver coletas agendadas" << "\n";
         //std::cout << "(3)Sair" << "\n";
 
-        Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro,local_cadastro,usuario_cadastro);
-        agenda->Realiza_Agendamento();
+        //Agenda_Coleta *agenda = new Agenda_Coleta(usuario, material_cadastro,local_cadastro,usuario_cadastro);
+        agenda->Realiza_Agendamento(usuario, material_cadastro,local_cadastro,usuario_cadastro);
         //agenda->Recebe_vector();
         std::cin >> opcao;
 
