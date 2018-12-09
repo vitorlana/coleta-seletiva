@@ -20,13 +20,14 @@ void Agenda_Coleta::Imprime_dados(){
 std::vector<Coleta *> Agenda_Coleta::get_vector(){
     return vec_coletas;
 }
-
+/*
 void Agenda_Coleta::Recebe_vector()
 {
     vector_materiais = materiais->retorna_materiais(doador);
     for(int i=0; vector_materiais.size() < i; i++){
         std::cout << vector_materiais[i]->get_nome() << "\n";}
 }
+*/
 
 void Agenda_Coleta::Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materiais, CadastroLocal *locais, CadastroUsuario *lista_usuarios)
 {
