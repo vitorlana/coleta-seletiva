@@ -10,6 +10,7 @@ Coleta::Coleta(int posicao_vetor, std::string local_coleta, std::string doador, 
 
 void Coleta::set_coleta_realizada(){
     Coleta_realizada = true;
+    return;
 }
 
 int Coleta::get_posicao_vetor(){ return posicao_vetor;}

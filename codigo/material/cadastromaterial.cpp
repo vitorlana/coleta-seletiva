@@ -91,6 +91,7 @@ void CadastroMaterial::excluirmaterial(int posicao, Pessoa* usuario_logado){
 
 void CadastroMaterial::excluir_material(int posicao, std::string usuario_dono){
     Mapadonos[usuario_dono].erase(Mapadonos[usuario_dono].begin()+posicao);
+    return;
 }
 
 std::vector<Material*> CadastroMaterial::retorna_materiais(std::string usuario)
