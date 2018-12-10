@@ -90,6 +90,7 @@ void MenuPrincipal(Pessoa *usuario){
             MenuMaterial(usuario);
             break;
         case 2:
+            system("cls||clear");
             MenuLocal();
             break;
         case 3:
@@ -128,8 +129,11 @@ void MenuMaterial(Pessoa* usuario_logado){
             std::cout <<"Insira  a posicao do material" << "\n";
             std::cin >> pos;
             material_cadastro->excluirmaterial((pos-1),usuario_logado);
+            system("cls||clear");
+            std::cout<<"Material excluido com sucesso"<<std::endl<<std::endl;
             break;
         case 4:
+            system("cls||clear");
             return;
             break;
         default:
@@ -158,6 +162,7 @@ void MenuCadastroColeta(Pessoa *usuario)
                     coleta_r->Imprime_Coletas_Realizadas(agenda->get_vector(),usuario);
                     break;
                 case 3:
+                    system("cls||clear");
                     return;
                     break;
             }
@@ -180,6 +185,7 @@ void MenuCadastroColeta(Pessoa *usuario)
                     agenda->Imprime_dados();
                     break;
                 case 3:
+                    system("cls||clear");
                     return;
                     break;
             }
@@ -216,6 +222,7 @@ void MenuLocal(){
             local_cadastro->excluir_local();
             break;
         case 4:
+            system("cls||clear");
             return;
             break;
         }

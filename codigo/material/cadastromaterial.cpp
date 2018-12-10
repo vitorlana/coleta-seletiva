@@ -37,24 +37,28 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
     if(material==1){
         Material *novopapel= new Papel (quantidade, descricao, usuario_logado);
         Mapadonos [usuario_logado->get_nome()].push_back(novopapel);
+        system("cls||clear");
         novopapel->modo_de_armazenamento();
     }
     else {
         if (material==2){
             Material *novoplastico= new Plastico (quantidade, descricao, usuario_logado);
             Mapadonos[usuario_logado->get_nome()].push_back(novoplastico);
+            system("cls||clear");
             novoplastico->modo_de_armazenamento();
         }
         else {
             if (material==3){
                 Material *novometal= new Metal (quantidade, descricao, usuario_logado);
                 Mapadonos [usuario_logado->get_nome()].push_back(novometal);
+                system("cls||clear");
                 novometal->modo_de_armazenamento();
             }
             else {
                 if (material==4){
                    Material *novovidro= new Vidro (quantidade, descricao, usuario_logado);
                    Mapadonos [usuario_logado->get_nome()].push_back(novovidro);
+                   system("cls||clear");
                    novovidro->modo_de_armazenamento();
 
                 }
@@ -62,6 +66,7 @@ void CadastroMaterial::cadastrar_material(Pessoa* usuario_logado){
                     if (material=5){
                     Material *novooleo= new Oleo (quantidade, descricao, usuario_logado);
                     Mapadonos [usuario_logado->get_nome()].push_back(novooleo);
+                    system("cls||clear");
                     novooleo->modo_de_armazenamento();
                 }
                 }

@@ -62,6 +62,7 @@ void Agenda_Coleta::Realiza_Agendamento(Pessoa *doador,CadastroMaterial *materia
 		std::getline(std::cin, nome_realizar_coleta);
     Coleta *coleta =  new Coleta(posicao_vetor,local_realizar_coleta,nome_doador_material,nome_realizar_coleta);
     vec_coletas.push_back(coleta);
+    system("cls||clear");
     std::cout << "COLETA AGENDADA COM SUCESSO" << '\n';
     return;
 }

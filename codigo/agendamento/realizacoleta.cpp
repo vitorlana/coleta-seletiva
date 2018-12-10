@@ -47,6 +47,7 @@ void Realiza_Coleta::Realizar_Coleta(std::vector<Coleta*> coletas_disponiveis, P
     materiais->excluir_material(coletas_disponiveis.at(n_coleta)->get_posicao_vetor(), coletas_disponiveis.at(n_coleta)->get_doador());
     coletas_disponiveis.at(n_coleta)->set_coleta_realizada();
     //vector_materiais.erase(vector_materiais.begin()+n_coleta);
+    system("cls||clear");
     std::cout << "COLETA REALIZDA COM SUCESSO" << '\n';
 }
 
