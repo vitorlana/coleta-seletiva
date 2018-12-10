@@ -14,6 +14,12 @@ void Agenda_Coleta::Imprime_dados(){
         std::cout << "LOCAL DE COLETA DO MATERIAL:"<<vec_coletas.at(i)->get_local_coleta() << '\n';
         std::cout << "DOADOR DO MATERIAL:"<<vec_coletas.at(i)->get_doador() << '\n';
         std::cout << "RECEPTOR DO MATERIAL:"<<vec_coletas.at(i)->get_receptor() << '\n';
+        std::cout << "STATUS COLETA : ";
+        if (vec_coletas.at(i)->get_status() == true) {
+            std::cout << "CONCLUIDA" << '\n';
+        }else{
+            std::cout << "PENDENTE" << '\n';
+        }
     }
 }
 

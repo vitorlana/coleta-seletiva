@@ -74,7 +74,7 @@ void CadastroMaterial::imprimir_materiais_cadastrados(Pessoa* usuario_logado){
     Materiais_cadastrados = Mapadonos [usuario_logado->get_nome()];
     if (Materiais_cadastrados.size()>0){
     for (int i=0; i<Materiais_cadastrados.size(); i++){
-        std::cout <<"Posicao:" << i+1 << "\n";
+        std::cout <<"Posicao:" << i << "\n";
         std::cout<<"Tipo: "<< Materiais_cadastrados[i]->get_nome()<<std::endl;
         std::cout<<"Quantidade: "<<Materiais_cadastrados[i]->get_quantidade_em_quilos()<<std::endl;
         std::cout<<"Descricao: "<<Materiais_cadastrados[i]->get_breve_descricao()<<std::endl;

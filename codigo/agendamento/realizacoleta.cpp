@@ -3,7 +3,9 @@
 
 void Realiza_Coleta::Imprime_Coletas_ARealizar(std::vector<Coleta*> coletas_disponiveis, Pessoa *usuario)
 {
-    for (int i=0; i<coletas_disponiveis.size();i++) {
+    std::vector<Coleta*>::iterator it;
+    int i=0;
+    for (it = coletas_disponiveis.begin(); it != coletas_disponiveis.end(); it++,i++) {
         if (coletas_disponiveis.at(i)->get_receptor() == usuario->get_nome() && coletas_disponiveis.at(i)->get_status() == false ){
             std::cout << "NUMERO DA COLETA :"<< i << '\n';
             std::cout << "NUMERO DO MATERIAL :" << coletas_disponiveis.at(i)->get_posicao_vetor() << '\n';
@@ -16,7 +18,9 @@ void Realiza_Coleta::Imprime_Coletas_ARealizar(std::vector<Coleta*> coletas_disp
 
 void Realiza_Coleta::Imprime_Coletas_Realizadas(std::vector<Coleta*> coletas_disponiveis, Pessoa *usuario)
 {
-    for (int i=0; i<coletas_disponiveis.size();i++) {
+    std::vector<Coleta*>::iterator it;
+    int i=0;
+    for (it = coletas_disponiveis.begin(); it != coletas_disponiveis.end(); it++,i++) {
         if (coletas_disponiveis.at(i)->get_receptor() == usuario->get_nome() && coletas_disponiveis.at(i)->get_status() == true){
             std::cout << "---------STATUS REALIZADO------ " << '\n';
             std::cout << "NUMERO DA COLETA :"<< i << '\n';
